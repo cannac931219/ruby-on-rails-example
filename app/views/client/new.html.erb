@@ -1,0 +1,40 @@
+
+<div style="margin: 20px 0 0 350px;">
+	<div>上传新建</div>
+		<!-- <form action="/doc" method="post" enctype="multipart/form-data"> -->
+			<!-- <input type="text" class="username" name="username" placeholder="username"></br> -->
+			<!-- <input type="text" class="sex" name="sex" placeholder="sex"></br> -->
+			<input type="file" name="file" id="file_upload">
+	    <button id="sub_pic_btn">submit</button>
+		<!-- </form> -->
+</div>
+
+<script type="text/javascript">
+	var submitBtn = $('#sub_pic_btn');
+	var timestamp = new Date().getTime();
+	var token = Math.floor(Math.random() * 1000) + timestamp;
+	var formData = new FormData();
+	submitBtn.click(function () {
+		var params = {};
+		params.username = $('.username').val();
+		params.sex = $('.sex').val();
+		formData.append("file", $("#file_upload")[0].files[0]);//将文件塞入FormData
+
+		console.log(formData)
+
+		$.ajax({
+			method: 'POST',
+			data: formData,
+			url: '/doc',
+			dataType: 'json',
+			processData: false,  // 告诉jQuery不要去处理发送的数据
+      contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
+      // success: function (responseText) {
+      //     alert(responseText);
+      // }
+		});
+	});
+  
+
+	
+</script>

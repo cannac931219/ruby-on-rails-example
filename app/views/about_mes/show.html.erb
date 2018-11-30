@@ -1,0 +1,50 @@
+数据http请求
+<!-- <form style="margin: 10px 0 0 0;"> -->
+	<input type="text" name="title" class="one">
+	<input type="text" name="content" class="two">
+	<div class="aaa" style="cursor: pointer;background-color: pink;width: 80px;text-align: center;">提交</div>
+<!-- </form> -->
+
+<table>
+	<tr>
+		<th style="width: 200px;width: 500px;text-align: left;">title</th>
+		<th>content</th>
+	</tr>
+	<% Art.all.each do |a| %>
+		<tr>
+			<td><%= a.title %></td>
+			<td><%= a.content %></td>
+		</tr>
+	<% end %>
+</table>
+
+
+
+
+<script>
+
+var formBtn = $('.aaa');
+
+
+// console.log(testBtn);
+formBtn.click(function() {
+	var param = {
+	title: $('.one').val(),
+	content: $('.two').val()
+}
+
+$.ajax({
+		url: '/v1/arts/hello',
+		method: 'GET',
+		dataType: 'json',
+		data: param,
+		success: function(data) {
+			console.log(data);
+			if (data.data.status == 200) {
+				window.location.reload()
+			}
+		}
+	});
+});
+// var hhh = new Tee(testBtn);
+</script>

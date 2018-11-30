@@ -1,0 +1,14 @@
+
+<div style="color: pink;position: relative;top: 20px;left: 270px;"> 
+	helperuse_index_path
+	<div>
+		<p><%= helperuser_print(888) %></p>
+		<p><%= HelperuseHelper.helperuser_prints(123) %></p>
+	</div>
+	<div>调用weather model 的self 方法</div>
+	<div>
+		<% Weather.weather_data.each do |w| %>
+		<div><%= w.city %></div>
+		<% end %>
+	</div>
+</div>

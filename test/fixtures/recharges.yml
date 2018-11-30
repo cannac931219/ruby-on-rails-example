@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  money: MyText
+  bank_card_id: 1
+  bank_card: MyText
+  recharge_user_name: MyText
+  user_id: 1
+
+two:
+  money: MyText
+  bank_card_id: 1
+  bank_card: MyText
+  recharge_user_name: MyText
+  user_id: 1

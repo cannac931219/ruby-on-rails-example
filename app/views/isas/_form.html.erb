@@ -1,0 +1,31 @@
+<%= form_with(model: isa, local: true) do |form| %>
+  <% if isa.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(isa.errors.count, "error") %> prohibited this isa from being saved:</h2>
+
+      <ul>
+      <% isa.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :isbname %>
+    <% if isa.isbs && isa.isbs.length > 0 %>
+      <input type="text" name="isa[isbname]" value="<%= isa.isbs.first.isbname %>">
+    <% else %>
+      <%= form.text_field :isbname %>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

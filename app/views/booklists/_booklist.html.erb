@@ -1,0 +1,24 @@
+
+<!--<% if booklist.body %>-->
+	<div>
+		<div>创建时间： <%= booklist.created_at %></div>
+		<div>修改时间： <%= booklist.updated_at %></div>
+		<span>
+			id: <%= booklist.id %> &nbsp;&nbsp;
+		</span>
+		<span>
+			属于: <%= booklist.art_id %>艺术 &nbsp;&nbsp;
+		</span>
+		<p style="display: inline-block;">
+			body: <%= booklist.body %>
+		</p>
+		
+			<p style="display: inline-block;">
+				操作：<%= link_to '删除书籍名称', [booklist.art, booklist],
+																	method: :delete,
+																	data: { confirm: '确定删除吗？' } ,
+																	id:'deletes_icon' %>
+			</p>
+	
+	</div>
+<!--<% end %>-->

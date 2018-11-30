@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Isas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>Name</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @isas.each do |isa| %>
+      <tr>
+        <td><%= isa.id %></td>
+        <td><%= isa.name %></td>
+        <td><%= link_to 'Show', isa %></td>
+        <td><%= link_to 'Edit', edit_isa_path(isa) %></td>
+        <td><%= link_to 'Destroy', isa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Isa', new_isa_path %>

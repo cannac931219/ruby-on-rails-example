@@ -1,0 +1,11 @@
+{
+  "name": "egg",
+  "private": true,
+  "dependencies": {
+    "jquery": "^3.3.1"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "xinxiaonan",
+  "license": "MIT"
+}

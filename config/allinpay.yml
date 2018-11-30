@@ -1,0 +1,31 @@
+development: &default
+  api_base: https://113.108.182.3/aipg/quickpay
+  api_common_base: https://113.108.182.3/aipg/ProcessServlet
+  web_base: https://113.108.182.3/aiap
+  merchant_id: '200604000005033'
+  name: '20060400000503304'
+  password: '111111'
+  protocol_sms_code:
+    trx_code: '310001'
+    version: '04'
+  protocol_signing:
+    trx_code: '310002'
+    version: '04'
+  protocol_remove:
+    trx_code: '310003'
+    version: '04'
+  protocol_payment:
+    trx_code: '310011'
+    version: '04'
+    business_code: '19900'
+  card_bin:
+    trx_code: '200007'
+    version: '04'
+test:
+  <<: *default
+
+production:
+  <<: *default
+  api_base: https://tlt.allinpay.com/aipg/quickpay/
+  web_base: https://tlt.allinpay.com/
+  api_common_base: https://tlt.allinpay.com/aipg/ProcessServlet

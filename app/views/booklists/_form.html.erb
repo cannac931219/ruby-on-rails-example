@@ -1,0 +1,15 @@
+<% if @art.booklist  %>
+	<%= form_for ([@art, @art.booklist]) do |f| %>
+	  <p>
+	    <%= f.label :body %><br>
+	    <%= f.text_area :body %>
+	  </p>
+	  <p>
+	    <%= f.submit %>
+	  </p>
+	<% end %>
+<% else %>
+	<p>
+		<%= link_to 'new booklist', art_booklists_path(@art[:id]) %>
+	</p>
+<% end %>

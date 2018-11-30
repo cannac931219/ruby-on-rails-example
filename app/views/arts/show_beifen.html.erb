@@ -1,0 +1,43 @@
+
+<p>
+  <strong>Title:</strong>
+  <%= @art.title %>
+</p>
+ 
+<p>
+  <strong>Text:</strong>
+  <%= @art.content %>
+</p>
+
+
+<!--
+<h2>显示booklist模型的  body:</h2>
+<p>
+  <% @art.booklist.each do |booklist| %>
+  <p>
+    <strong>Commenter:</strong>
+    <%= booklist.body %>
+  </p>
+  <% end %>
+</p>-->
+
+ <!--
+<h2>Add a comment:</h2>
+<%= form_for([@art, @art.booklist.build]) do |f| %>
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>-->
+
+<h2>显示booklist模型的  body:</h2>
+<%= render @art.booklist %>
+
+<h2>添加booklist的body</h2>
+<%= render 'booklists/form' %>
+
+<div><%= link_to '查看列表页', arts_path %></div>
+<div><%= link_to '返回新建', new_art_path %></div><div><%= link_to '编辑', edit_art_path(@art) %></div>

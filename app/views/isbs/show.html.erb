@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @isb.name %>
+</p>
+
+<p>
+  <strong>Isa:</strong>
+  <%= @isb.isa_id %>
+</p>
+
+<%= link_to 'Edit', edit_isb_path(@isb) %> |
+<%= link_to 'Back', isbs_path %>

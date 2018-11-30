@@ -1,0 +1,27 @@
+<div><%= link_to '返回新建art', new_art_path %></div>
+<div><%= link_to '编辑', edit_art_path(@art) %></div>
+<p>
+  <strong>Title:</strong>
+  <%= @art.title %>
+</p>
+ 
+<p>
+  <strong>Text:</strong>
+  <%= @art.content %>
+</p>
+
+
+<div><%= link_to '查看列表页', arts_path %></div>
+
+<h2>显示booklist模型的  body:</h2>
+<% if @art.booklist %>
+	<%= render @art.booklist %>
+<% end %>
+
+<%= render plain:'print here somethings' %>
+<h2>添加booklist的body</h2>
+<%= render 'booklists/form' %>
+
+
+
+

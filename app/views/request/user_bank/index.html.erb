@@ -1,0 +1,41 @@
+<div style="color: #000;position: relative;top: 20px;left: 270px;">
+	<div>
+		<h3>用户银行卡</h3>
+		<div>
+			
+		</div>
+		<div>
+			<table>
+				<thead>
+					<tr style="background-color: yellow;color: purple;">
+						<th>用户</th>
+						<th>银行卡号</th>
+						<th>银行</th>
+						<th>分行</th>
+						<th>是否签约</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% if @userbank.length != 0 %>
+						<% @userbank.each do |ub| %>
+							<tr>
+								<td><%= ub.user_name %></td>
+								<td><%= ub.bank_card %></td>
+								<td><%= ub.bank_name %></td>
+								<td><%= ub.branch_name %></td>
+								<td><%= ub.agrmno %></td>
+								</tr>
+						<% end %>
+						<% else %>
+						<tr>
+							<td colspan="5" style="text-align: center;">暂无数据
+								<%= link_to '去创建银行卡', new_request_user_bank_path, class:"color_dark" %>
+							</td>
+						</tr>
+						<% end %>
+					
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

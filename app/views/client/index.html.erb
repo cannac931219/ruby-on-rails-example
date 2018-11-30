@@ -1,0 +1,9 @@
+client
+<div>
+	<% if @clientImage %>
+		<% @clientImage.each do |i| %>
+			<img src="<%= i.file %>" style="width: 80px;height: 50px;" />
+		<% end %>
+	<% end %>
+</div>
+<%= link_to 'new',new_client_path %>

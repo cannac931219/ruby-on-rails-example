@@ -1,0 +1,48 @@
+<div style="color: #000;position: relative;top: 20px;left: 270px;">
+	<div>
+		<h3>新建开户行</h3>
+		<div>
+			<%= form_tag controller: 'request/bank_branch', action: 'create', method: 'post' do %>
+				<div>
+					<label for='user_id'>创建用户：</label>
+					<%= select_tag(:user_id, options_for_select(@user.map{ |u| [u.user_name, u.id] })) %>
+				</div>
+				<div>
+					<label for='bank_id'>总行：</label>
+					<%= select_tag(:bank_id, options_for_select(@bank.map{ |b| [b.bank_name, b.id] })) %>
+				</div>
+				<div>
+					<label for='branch_name'>分行名字：</label>
+					<%= text_field_tag :branch_name, '', placeholder: '请输入所在银行名' %>
+				</div>
+				<div>
+					<label for='branch_no'>分行编码：</label>
+					<%= text_field_tag :branch_no, '', placeholder: '请输入卡号' %>
+				</div>
+				<%= submit_tag('提交') %>
+			<% end %>
+		</div>
+	</div>
+	<div>
+		<table>
+			<thead>
+				<tr style="background-color: gray;color: orange;">
+					<th>id</th>
+					<th>分行名字</th>
+					<th>分行号</th>
+					<th>所属银行</th>
+				</tr>
+			</thead>
+			<tbody>
+					<% @branch.each do |b| %>
+						<tr>
+							<td><%= b.id %></td>
+							<td><%= b.branch_name %></td>
+							<td><%= b.branch_no %></td>
+							<td><%= b.bank_name %></td>
+						</tr>
+					<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>

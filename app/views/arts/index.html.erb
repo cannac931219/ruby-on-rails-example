@@ -1,0 +1,30 @@
+<div>arts </div>
+<table>
+	<tr>
+		<th>id</th>
+		<th>title</th>
+		<th>content</th>
+		<th>createTime</th>
+		<th>操作</th>
+	</tr>
+
+	<% Art.all.each do |a| %>
+		<tr>
+			<td> <%= a.id %> </td>
+			<td> <%= a.title  %> </td>
+			<td> <%= a.content  %> </td>
+			<td> <%= a.created_at.to_date %> </td>
+			<td> <%= link_to 'Show', art_path(a)  %> </td>
+			<td> <%= link_to 'Edit', edit_art_path(a)  %> </td>
+			<td> <%= link_to 'Destroy', art_path(a),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %> </td>
+		</tr>
+	<% end %>
+
+</table>
+
+<div><%= link_to '返回新建', new_art_path %></div>
+<div>
+	<a href="/about_mes/show">到关于我的-页面</a>
+</div>

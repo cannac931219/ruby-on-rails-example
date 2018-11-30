@@ -1,0 +1,2 @@
+module Request::ErrorHelper
+end

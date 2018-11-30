@@ -1,0 +1,15 @@
+<%= form_for :text, url: text_path do |t| %>
+  <p>
+  	<%= t.label :title %>
+    <%= t.text_field :title %>
+  </p>
+
+  <p>
+  	<%= t.label :texts %>
+  	<%= t.text_area :texts %>
+  </p>
+
+  <p>
+  	<%= t.submit %>
+  </p>
+<% end %> 

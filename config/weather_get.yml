@@ -1,0 +1,8 @@
+development: &default
+  api_base: https://www.sojson.com/open/api/weather/json.shtml
+test:
+  <<: *default
+
+production:
+  <<: *default
+  api_base: https://www.sojson.com/open/api/weather/json.shtml

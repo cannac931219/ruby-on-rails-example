@@ -1,0 +1,88 @@
+<div class="" style="width: 270px;float: left;">
+	<div class="sidebar_box clearfix">
+		<b class="sidebar">关联表</b>
+		<ul class="sidebar">
+			<li class="<%= is_active('isas', 'index', 'active') %>">
+				<%= link_to '关联表(has_many && belongs_to)', isas_path, class:"color_dark" %>
+			</li>
+		</ul>
+	</div>
+
+	<div class="sidebar_box clearfix">
+		<b class="sidebar">上传carrierwave</b>
+		<ul class="sidebar">
+			<li class="<%= is_active('client', 'index', 'active') %>">
+				<%= link_to '上传-后台使用carrierwave', client_index_path, class:"color_dark" %>
+			</li>
+		</ul>
+	</div>
+
+	<div class="sidebar_box clearfix">
+		<b class="sidebar">adminPage</b>
+		<ul class="sidebar">
+			<!-- <li><a href="/admin/art_person" style="color: rgba(0,0,0,0.5);">admin/art_person/indexOfpage</a></li> -->
+			<li class="<%= is_active('admin/art_person', 'index', 'active') %>">
+				<%= link_to 'admin/art_person/indexOfpage', admin_art_person_index_path, class:"color_dark" %>
+			</li>
+			<li class="<%= is_active('admin/art_pen', 'index', 'active') %>">
+				<%= link_to 'admin/art_pen/indexOfpage', admin_art_pen_index_path, class:"color_dark" %>
+			</li>
+			<li class="<%= is_active('admin/art_pen', 'new', 'active') %>">
+				<%= link_to 'admin/art_pen/newOfpage', new_admin_art_pen_path, class:"color_dark" %>
+			</li>
+		</ul>
+	</div>
+	<div class="sidebar_box clearfix">
+		<b class="sidebar">Api</b>
+		<ul class="sidebar">
+			<li class="<%= is_active('free/weather', 'index', 'active') %>">
+				<%= link_to '天气接口-https-get', free_weather_index_path, class:"color_dark" %>
+			</li>
+		</ul>
+	</div>
+	<div class="sidebar_box clearfix">
+		<b class="sidebar">Helper</b>
+		<ul class="sidebar">
+			<li class="<%= is_active('helperuse', 'index', 'active') %>">
+				<%= link_to 'helper用法', helperuse_index_path, class:"color_dark" %>
+			</li>
+		</ul>
+	</div>
+	<div class="sidebar_box clearfix">
+		<b class="sidebar">upload——image</b>
+		<ul class="sidebar">
+			<li class="<%= is_active('image_path', 'index', 'active') %>">
+				<%= link_to '上传图片', images_path, class:"color_dark" %>
+			</li>
+		</ul>
+	</div>
+	<div class="sidebar_box clearfix">
+		<b class="sidebar">requestPage - no requeset</b>
+		<ul class="sidebar">
+			<li class="<%= is_active('request/bank', 'index', 'active') %>">
+				<%= link_to '银行', request_bank_index_path, class:"color_dark" %>
+			</li>
+			<li class="<%= is_active('request/bank_branch', 'index', 'active') %>">
+				<%= link_to '银行开户行', request_bank_branch_index_path, class:"color_dark" %>
+			</li>
+			<li class="<%= is_active('request/user_bank', 'index', 'active') %>">
+				<%= link_to '用户银行卡', request_user_bank_index_path, class:"color_dark" %>
+			</li>
+			<li class="<%= is_active('request/user_bank', 'new', 'active') %>">
+				<%= link_to '新建用户银行卡', new_request_user_bank_path, class:"color_dark" %>
+			</li>
+		</ul>
+	</div>
+	<div class="sidebar_box clearfix">
+		<b class="sidebar">Recharge - no requeset</b>
+		<ul class="sidebar">
+			<li class="<%= is_active('request/recharge', 'index', 'active') %>">
+				<%= link_to '充值列表', request_recharge_index_path, class:"color_dark" %>
+			</li>
+			<li class="<%= is_active('request/recharge', 'new', 'active') %>">
+				<%= link_to '去充值', request_recharge_new_path, class:"color_dark" %>
+			</li>
+		</ul>
+	</div>
+
+</div>

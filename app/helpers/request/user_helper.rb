@@ -1,0 +1,2 @@
+module Request::UserHelper
+end

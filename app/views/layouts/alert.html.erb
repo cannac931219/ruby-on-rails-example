@@ -1,0 +1,22 @@
+<div class="alert <%= @status ? 'alert-success' : 'alert-danger' %>" role="alert">
+  <h2>
+    <% if @alert_text %>
+      <%= @alert_text %>
+    <% else %>
+      <%= @status ? "操作成功" : "操作失败" %>
+    <% end %>
+  </h2>
+  <% if @status %>
+    <a class="btn btn-default" href="<%= @jump_url %>">返回</a>
+  <% else %>
+    <a class="btn btn-default" href="#" id="btn-go-back">返回</a>
+  <% end %>
+</div>
+<script>
+$(function(){
+    $("#btn-go-back").click(function(){
+        window.history.back();
+        return false;
+    });
+});
+</script>

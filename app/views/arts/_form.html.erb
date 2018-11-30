@@ -1,0 +1,35 @@
+<div>
+	<div>
+		<%= form_for @art do |a| %>
+			<% if @art.errors.any? %>
+		    <div id="error_explanation">
+		      <h2>
+		        <%= pluralize(@art.errors.count, "error") %> prohibited
+		        this article from being saved:
+		      </h2>
+		      <ul>
+		        <% @art.errors.full_messages.each do |msg| %>
+		          <li><%= msg %></li>
+		        <% end %>
+		      </ul>
+		    </div>
+		  <% end %>
+			<div>
+				<%= a.label :title %>
+				<br>
+				<%= a.text_field :title %>
+			</div>
+			<div>
+				<%= a.label :content %>
+				<br>
+				<%= a.text_area :content %>
+			</div>
+			</div>
+			<div>
+				<%= a.submit %>
+			</div>
+		<% end %>
+	</div>
+</div>
+<div><%= link_to '查看列表方法一，path', arts_path %></div>
+<div><%= link_to '查看列表方法二 控制器', controller: 'arts' %></div>

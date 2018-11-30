@@ -1,0 +1,38 @@
+<div style="color: #000;position: relative;top: 20px;left: 270px;">
+	<div>
+		<h3>充值列表</h3>
+		<div>
+			
+		</div>
+		<div>
+			<table>
+				<thead>
+					<tr style="background-color: cadetblue;color: ivory;">
+						<th>用户</th>
+						<th>充值金额</th>
+						<th>银行卡号</th>
+						<th>所属银行</th>
+						<th>充值日期</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<% if @recharge.length != 0 %>
+							<% @recharge.each do |ub| %>
+								<td><%= ub.recharge_user_name %></td>
+								<td><%= ub.money %></td>
+								<td><%= ub.bank_card %></td>
+								<td><%= ub.bank_name %></td>
+								<td><%= ub.created_at %></td>
+							<% end %>
+						<% else %>
+							<td colspan="5" style="text-align: center;">暂无数据
+							<%= link_to '去充值', request_recharge_new_path, class:"color_dark" %>
+							</td>
+						<% end %>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

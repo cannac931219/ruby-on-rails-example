@@ -1,0 +1,103 @@
+<div style="color: #000;position: relative;top: 20px;left: 270px;">
+	weather
+	<div>
+		<%= form_tag ('/free/weather/index'), method:'get' do %>
+			<select id="city" name="city">
+				<option value="北京">北京</option>
+				<option value="上海">上海</option>
+				<option value="天津">天津</option>
+				<option value="呼和浩特">呼和浩特</option>
+			</select>
+		<%= submit_tag "查询" %>
+		<% end %>
+	</div>
+	<div>
+		<h3>'@city_weather_response'</h3>
+		<% if @city_weather_response; w = @city_weather_response %>
+			<div>
+				<div>today</div>
+				<table>
+					<thead>
+						<tr style="background-color: rgba(100,250,155,0.2);">
+							<th></th>
+							<th>date</th>
+							<th>sunrise</th>
+							<th>high</th>
+							<th>low</th>
+							<th>sunset</th>
+							<th>aqi</th>
+							<th>fx</th>
+							<th>fl</th>
+							<th>type</th>
+							<th>notice</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td style="width: 50px;"><input type="checkbox" name=""></td>
+							<td><%= w['city'] %></td>
+							<td><%= w['date'] %></td>
+							<td><%= w['data']['shidu'] %></td>
+							<td><%= w['data']['pm25'] %></td>
+							<td><%= w['data']['pm10'] %></td>
+							<td><%= w['data']['quality'] %></td>
+							<td><%= w['data']['wendu'] %></td>
+							<td><%= w['data']['ganmao'] %></td>
+						</tr>
+					</tbody>
+				</table>
+				<div>all - 数据</div>
+				<table>
+					<thead>
+						<tr style="background-color: rgba(0,0,0,0.2);">
+							<th>date</th>
+							<th>sunrise</th>
+							<th>high</th>
+							<th>low</th>
+							<th>sunset</th>
+							<th>aqi</th>
+							<th>fx</th>
+							<th>fl</th>
+							<th>type</th>
+							<th>notice</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @city_weather_response['data']['forecast'].each do |w| %>
+						<tr>
+							<td style="border:1px solid gray;"><%= w['date'] %></td>
+							<td style="border:1px solid gray;"><%= w['sunrise'] %></td>
+							<td style="border:1px solid gray;"><%= w['high'] %></td>
+							<td style="border:1px solid gray;"><%= w['low'] %></td>
+							<td style="border:1px solid gray;"><%= w['sunset'] %></td>
+							<td style="border:1px solid gray;"><%= w['aqi'] %></td>
+							<td style="border:1px solid gray;"><%= w['fx'] %></td>
+							<td style="border:1px solid gray;"><%= w['fl'] %></td>
+							<td style="border:1px solid gray;"><%= w['type'] %></td>
+							<td style="border:1px solid gray;"><%= w['notice'] %></td>
+						</tr>
+						<% end %>
+					</tbody>
+				</table>
+			</div>
+		<% end %>
+	</div>
+	<div>
+		<h3> 查询结果 - 今天 </h3>
+		<% if @city_weather %>
+			<div>
+				<span>地点</span>
+				<span><%= @city_weather.city %></span>
+			</div>
+			<div>
+				<span>高温</span>
+				<span><%= @city_weather.high %></span>
+			</div>
+			<div>
+				<span>低温</span>
+				<span><%= @city_weather.low %></span>
+			</div>
+		<% end %>
+	</div>
+	
+</div>

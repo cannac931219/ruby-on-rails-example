@@ -1,0 +1,9 @@
+<div style="color: pink;position: relative;top: 20px;left: 270px;">
+	art pen page
+	<ul>
+		<% @ArtPen.each do |data| %>
+			<!-- <li><%= link_to "name is : " + "#{data.name}", '/admin/art_pen/' + "#{data.id}" %></li> -->
+			<li><%= link_to "name is : " + "#{data.name}", admin_art_pen_path(data.id) %></li>
+		<% end %>
+	</ul>	
+</div>

@@ -1,0 +1,10 @@
+<div style="color: blue;position: relative;top: 20px;left: 270px;">
+	new
+	<div>
+		<%= form_tag('/admin/art_pen', method: 'post') do %>
+			<label><%= text_field_tag(:name, '', placeholder: '输入name', id: 'name')%></label>
+			<input type="submit">
+		<% end %>
+	</div>	
+</div>
+	

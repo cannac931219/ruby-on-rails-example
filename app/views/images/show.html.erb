@@ -1,0 +1,17 @@
+<div style="color: pink;position: relative;top: 20px;left: 270px;">
+	<p id="notice"><%= notice %></p>
+
+	<% if @image %>
+		<div>成功上传的展示：</div>
+		<p>
+		  <strong>Name:</strong>
+		  <%= @image.name %>
+		</p>
+		<p>
+		  <strong>图片:</strong>
+		  <%= image_tag @image.avatar.url(:original) %>
+		</p>
+		<%= link_to 'Edit', edit_image_path(@image) %> |
+		<%= link_to 'Back', images_path %>
+	<% end %>
+</div>

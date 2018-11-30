@@ -1,0 +1,2 @@
+module Request::BankBranchHelper
+end

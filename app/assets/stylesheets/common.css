@@ -1,0 +1,6 @@
+.clearfix {
+	clear: both;
+	height: 0;
+	display: block;
+	content: '';
+}

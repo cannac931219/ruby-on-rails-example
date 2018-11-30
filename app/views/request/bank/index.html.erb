@@ -1,0 +1,65 @@
+<div style="color: #000;position: relative;top: 20px;left: 270px;">
+	<div>
+		<h3>新建银行</h3>
+		<div>
+			<%= form_tag controller: 'request/bank', action: 'create', method: 'post' do %>
+				<div>
+					<label for='bank_name'>创建用户：</label>
+					
+						<%= select_tag(:user_id, options_for_select(@user.map{ |u| [u.user_name, u.id] })) %>
+				
+				</div>
+				<div>
+					<label for='bank_name'>银行名字：</label>
+					<%= text_field_tag :bank_name, '', placeholder: '请输入所在银行名' %>
+				</div>
+				<div>
+					<label for='bank_name'>银行编码：</label>
+					<%= text_field_tag :bank_no, '', placeholder: '请输入卡号' %>
+				</div>
+				<%= submit_tag('提交') %>
+			<% end %>
+		</div>
+	</div>
+	<div style="color: pink;">
+		<h5>银行列表</h5>
+		<form action="/request/bank" method="get">
+			<div>
+				<label for='bank_name'>选择创建用户：</label>
+				<select id="user_id" name="user_id">
+					<option>请选择</option>
+					<option value="0">全部</option>
+					<% @user.each do |user| %>
+						<option value="<%= user.id %>"><%= user.user_name %></option>
+					<% end %>
+				</select>
+			</div>
+			<%= submit_tag('搜索') %>
+		</form>
+		<div>
+			当前选中的是:
+			<%= @user_name %>
+			用户创建的银行数据
+		</div>
+		<table>
+			<thead>
+				<tr style="background-color: gray;color: orange;">
+					<th>id</th>
+					<th>银行</th>
+					<th>银行卡号</th>
+					<th>用户</th>
+				</tr>
+			</thead>
+			<tbody>
+					<% @bankAll.each do |bank| %>
+						<tr>
+							<td><%= bank.id %></td>
+							<td><%= bank.bank_name %></td>
+							<td><%= bank.bank_no %></td>
+							<td><%= bank.user_name %></td>
+						</tr>
+					<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
