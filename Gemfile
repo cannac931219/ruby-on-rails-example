@@ -50,6 +50,18 @@ gem "mini_magick"
 gem 'carrierwave-i18n'
 gem 'uploadify_rails'
 
+
+gem 'searchkick', '~> 3.1', '>= 3.1.2'
+# gem 'ransack'
+# 
+# 
+# gem 'tire'
+# gem 'elasticsearch-model', github: 'elastic/elasticsearch-rails', branch: '5.x'
+# gem 'elasticsearch-rails', github: 'elastic/elasticsearch-rails', branch: '5.x'
+
+ # gem 'elasticsearch-model', '~> 5.0', '>= 5.0.1'
+# gem 'elasticsearch-rails', '~> 5.0', '>= 5.0.1'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

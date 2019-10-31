@@ -1,0 +1,60 @@
+一、elasticsearch 
+https://ruby-china.org/topics/15337
+http://manageyp.github.io/elasticsearch/2013/10/09/elasticsearch-installation.html
+https://www.elastic.co/guide/en/elasticsearch/reference/7.4/brew.html
+brew install elastic/tap/elasticsearch-full
+brew cask install java
+
+
+https://www.elastic.co/guide/en/elasticsearch/reference/7.4/brew.html
+!!!!!!!!   brew install elastic/tap/elasticsearch-full
+!!!!!!!!   cd /usr/local/Cellar/elasticsearch-full/7.4.1/bin
+!!!!!!!!   ./elasticsearch
+!!!!!!!! searchkick
+!!!!!!!! /usr/local/etc/elasticsearch/ik 新建ik文件夹，放入elasticsearch-analysis-ik压缩包https://blog.csdn.net/u010504064/article/details/70214040
+
+
+ElasticSearch Installation
+本篇将详细记录 ElasticSearch 的安装和配置步骤。 以下安装配置步骤在 Mac OS X 上正常，Linux 应该也适用。
+
+安装和配置
+. 切换到下载目录
+cd ~/Downloads/
+. 下载 ES 安装文件
+sudo wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.90.5.tar.gz
+. 解压文件
+tar -zxvf elasticsearch-0.90.5.tar.gz
+. 重命名文件夹
+mv elasticsearch-0.90.5 elasticsearch
+. 下载 ES service shell 管理脚本
+git clone https://github.com/elasticsearch/elasticsearch-servicewrapper.git
+cd elasticsearch-servicewrapper
+. 拷贝 service 至 ES bin 目录下
+mv service /Users/leehenry/Downloads/elasticsearch/bin
+cd ../
+. 修改文件权限
+sudo chown -R root:wheel elasticsearch
+. 修改默认配置，主要关闭 ES 自动发现节点
+cd elasticsearch
+vim config/elasticsearch.yml
+    # 1. Disable multicast discovery (enabled by default):
+    #
+    discovery.zen.ping.multicast.enabled: false
+  . 启动 ES 服务
+sudo bin/service/elasticsearch start
+. 浏览器访问，确认服务运行正常
+http://localhost:9200
+    {
+      ok: true,
+      status: 200,
+      name: "Maximoff, Pietro",
+      version: {
+      number: "0.90.5",
+      build_hash: "c8714e8e0620b62638f660f6144831792b9dedee",
+      build_timestamp: "2013-09-17T12:50:20Z",
+      build_snapshot: false,
+      lucene_version: "4.4"
+      },
+      tagline: "You Know, for Search"
+    }
+  

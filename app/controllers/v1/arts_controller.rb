@@ -8,15 +8,15 @@ class V1::ArtsController < ApplicationController
 
 
 		# render something is right
-		#render status: 200, json: {
-
+		render json: {
+			:status => 200
 										#data: {
 											#:title => title,
 											#:content => content,
 											#:status => 200
 										#}
 
-		#}
+		}
 
 
 	end

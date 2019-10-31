@@ -1,6 +1,8 @@
+# require 'elasticsearch'
 class ArtsController < ApplicationController
   # http_basic_authenticate_with name: "xxn", password: "111", except: [:index, :show]
 
+  
   # layout 'admin', only: [:new]
 
   def new 
@@ -17,9 +19,7 @@ class ArtsController < ApplicationController
   	# render plain: 'submit success' render plain: params[:arts]
   	# 使用的是类 模型，所以大写Art 这里的art  跟 建立的模型对应， 而@art 是随便定义的变量名
   	@art = Art.new(art_params)
-
     if @art.save
-
       # redirect_to 保存之后的显示。通过此方法保存完之后跳转到show页面。
     	redirect_to arts_path
     else
@@ -38,17 +38,40 @@ class ArtsController < ApplicationController
   end 
 
   def index
-    @art = Art.all 
+    @arts = Art.all 
+  end
+
+  def search
+    # @arts = Art.search params[:q], fields: [:title, :content], aggs: {id: {}, title: {}, content: {}}
+    # @arts = Art.elasticsearch(params)
+    @arts = Art.search(params[:key])
+
+    # @arts1 = Art.ransack(params[:key])
+    # @arts = @arts1.result(distinct: true)
+    # @arts.each do |art|
+    #   p "^^^^^^"
+    #   p art.title
+    #   p "^^^^^^"
+    # end
+    p "^^^^^^"
+    p @arts
+    p "^^^^^^"
+    render 'search'
+    # filter_hash = {"order_no": params[:q] }
+    # # range_hash = {"order_amount": {"lte": params[:order_amount]}}
+    # sort = {id: :desc}
+    # page = 1
+    # per_page = 30
+    # total, products = ElasticsearchService.new(Art).search({filter: filter_hash, only_show: true}, sort, page.to_i, per_page.to_i)
   end
 
   # 一般放在show 和 private中间
   def update
     @art = Art.find(params[:id])
-
     if @art.update(art_params)
       redirect_to @art
     else 
-      render 'edit'
+      render 'index'
     end 
   end
 
@@ -57,9 +80,7 @@ class ArtsController < ApplicationController
     Art.find(params[:id]).destroy 
     # 这里要写的是arts_path，因为这个根据路由查看是默认的index列表页面
       redirect_to arts_path
-    
       # render plain: 'delete false'
-    
   end
 
   

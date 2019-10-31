@@ -3,6 +3,8 @@ require_relative 'boot'
 
 require 'rails/all'
 
+# require './lib/middleware/consider_all_request_json_middleware'
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -21,5 +23,7 @@ module Egg
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     config.autoload_paths += %W(#{config.root}/lib)
+
+    # config.middleware.insert_before(ActionDispatch::Static,ConsiderAllRequestJsonMiddleware)
   end
 end

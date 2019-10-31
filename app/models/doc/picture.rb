@@ -13,6 +13,7 @@ class Doc::Picture < Doc
   def find_or_create(attributes)
     # 获取数据file参数
     self.file = attributes
+    binding.pry
     # 进行MD5 存储文件（本身->摘要）
     md5 = Digest::MD5.hexdigest(self.file.read)
     # binding.pry

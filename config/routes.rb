@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   resources :doc
 
   resources :arts do
+    collection do
+      post 'search'
+    end
   	resources :booklists
   end
 
