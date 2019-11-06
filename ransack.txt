@@ -1,0 +1,39 @@
+
+‘ransack’ -> 模糊查询
+
+1. gem ‘ransack’
+gem ‘will_paginate’
+gem 'will_paginate-bootstrap'
+gem ‘seo_helper’
+
+2. 修改jobs_controller.rb，加入如下代码
+
+ def search
+    if @query_string.present?
+      search_result = Job.ransack(@search_criteria).result(:distinct => true)
+      @jobs = search_result.paginate(:page => params[:page], :per_page => 15 )
+    end
+  end
+
+
+  protected
+
+  # 取到params[:q]的内容并去掉非法的内容
+  def validate_search_key
+    @query_string = params[:q].gsub(/\\|\'|\/|\?/, "") if params[:q].present?
+    @search_criteria = search_criteria(@query_string)
+  end
+
+
+  def search_criteria(query_string)
+    { :title_cont => query_string }
+  end
+
+  [
+
+  Job model里面只有title,description等几个字段，这次我只实现title字段模糊查询，
+所以我构造了一个{ :title_cont => query_string }。
+如果我想是想title,description（多字段）字段模糊查询，则需要改为
+{ :title_or_description_cont => query_string 
+
+  ]
