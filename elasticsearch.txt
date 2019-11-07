@@ -7,10 +7,10 @@ brew cask install java
 
 
 https://www.elastic.co/guide/en/elasticsearch/reference/7.4/brew.html
-!!!!!!!!   brew install elastic/tap/elasticsearch-full
+!!!!!!!!   brew install elastic/tap/elasticsearch-full 可使elasticsearch启动9200服务。
 !!!!!!!!   cd /usr/local/Cellar/elasticsearch-full/7.4.1/bin
 !!!!!!!!   ./elasticsearch
-!!!!!!!! searchkick
+!!!!!!!! searchkick  view art / index.html.erb search -> 【post】 method
 !!!!!!!! /usr/local/etc/elasticsearch/ik 新建ik文件夹，放入elasticsearch-analysis-ik压缩包https://blog.csdn.net/u010504064/article/details/70214040
 
 
@@ -22,8 +22,9 @@ ElasticSearch Installation
 cd ~/Downloads/
 . 下载 ES 安装文件
 sudo wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.90.5.tar.gz
-. 解压文件
-tar -zxvf elasticsearch-0.90.5.tar.gz
+（wget可brew进行安装）
+
+
 . 重命名文件夹
 mv elasticsearch-0.90.5 elasticsearch
 . 下载 ES service shell 管理脚本
